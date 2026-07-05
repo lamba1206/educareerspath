@@ -1,0 +1,816 @@
+// Version: 4.0.0
+type AccessControlState__1039604880 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__246123559<Principal, UserRole__24097276>
+  };
+type AccessControlState__644643789 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__246123559<Principal, UserRole__316535459>
+  };
+type AccessControlState__825338347 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__246123559<Principal, UserRole__33289320>
+  };
+type AccessControlState__836714403 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__246123559<Principal, UserRole__686137147>
+  };
+type Amount__460182544 = Nat;
+type AnsweredQuestion__175719678 = {questionId : Nat; selectedOption : Nat};
+type AnsweredQuestion__493024089 = {questionId : Nat; selectedOption : Nat};
+type AnsweredQuestion__786160629 = {questionId : Nat; selectedOption : Nat};
+type AnsweredQuestion__86234133 = {questionId : Nat; selectedOption : Nat};
+type AssessmentProgress__1046261753 =
+  {
+    answers : [AnsweredQuestion__86234133];
+    assessmentType : AssessmentType__660726318;
+    lastSavedAt : Int;
+    startedAt : Int;
+    submitted : Bool;
+    submittedAt : ?Int;
+    userId : Principal
+  };
+type AssessmentProgress__332623773 =
+  {
+    answers : [AnsweredQuestion__175719678];
+    assessmentType : AssessmentType__938388126;
+    lastSavedAt : Int;
+    startedAt : Int;
+    submitted : Bool;
+    submittedAt : ?Int;
+    userId : Principal
+  };
+type AssessmentProgress__353828997 =
+  {
+    answers : [AnsweredQuestion__493024089];
+    assessmentType : AssessmentType__350374410;
+    lastSavedAt : Timestamp__301639476;
+    startedAt : Timestamp__301639476;
+    submitted : Bool;
+    submittedAt : ?Timestamp__301639476;
+    userId : UserId__158757552
+  };
+type AssessmentProgress__943465064 =
+  {
+    answers : [AnsweredQuestion__786160629];
+    assessmentType : AssessmentType__1012884239;
+    lastSavedAt : Int;
+    startedAt : Int;
+    submitted : Bool;
+    submittedAt : ?Int;
+    userId : Principal
+  };
+type AssessmentReport__349564380 =
+  {
+    assessmentType : AssessmentType__938388126;
+    breakdown : [ScoreBreakdown__907480311];
+    generatedAt : Int;
+    id : Principal;
+    maxScore : Nat;
+    recommendations : [CareerRecommendation__365508230];
+    summary : Text;
+    totalScore : Nat;
+    userId : Principal
+  };
+type AssessmentReport__513004356 =
+  {
+    assessmentType : AssessmentType__350374410;
+    breakdown : [ScoreBreakdown__696720188];
+    generatedAt : Timestamp__301639476;
+    id : UserId__158757552;
+    maxScore : Nat;
+    recommendations : [CareerRecommendation__1008883920];
+    summary : Text;
+    totalScore : Nat;
+    userId : UserId__158757552
+  };
+type AssessmentReport__653810497 =
+  {
+    assessmentType : AssessmentType__660726318;
+    breakdown : [ScoreBreakdown__338068372];
+    generatedAt : Int;
+    id : Principal;
+    maxScore : Nat;
+    recommendations : [CareerRecommendation__86567411];
+    summary : Text;
+    totalScore : Nat;
+    userId : Principal
+  };
+type AssessmentReport__679232127 =
+  {
+    assessmentType : AssessmentType__1012884239;
+    breakdown : [ScoreBreakdown__171602513];
+    generatedAt : Int;
+    id : Principal;
+    maxScore : Nat;
+    recommendations : [CareerRecommendation__403470912];
+    summary : Text;
+    totalScore : Nat;
+    userId : Principal
+  };
+type AssessmentType__1012884239 = {#aptitude; #interest; #personality};
+type AssessmentType__350374410 = {#aptitude; #interest; #personality};
+type AssessmentType__660726318 = {#aptitude; #interest; #personality};
+type AssessmentType__938388126 = {#aptitude; #interest; #personality};
+type AssessmentsState__25112535 =
+  {
+    progress :
+      Map__246123559<Principal,
+                      Map__246123559<AssessmentType__660726318,
+                                      AssessmentProgress__1046261753>>
+  };
+type AssessmentsState__33096673 =
+  {
+    progress :
+      Map__246123559<Principal,
+                      Map__246123559<AssessmentType__1012884239,
+                                      AssessmentProgress__943465064>>
+  };
+type AssessmentsState__771712877 =
+  {
+    progress :
+      Map__246123559<Principal,
+                      Map__246123559<AssessmentType__938388126,
+                                      AssessmentProgress__332623773>>
+  };
+type BlogPost__240102757 =
+  {
+    author : Text;
+    body : Text;
+    createdAt : Timestamp__301639476;
+    excerpt : Text;
+    id : Text;
+    published : Bool;
+    publishedAt : ?Timestamp__301639476;
+    slug : Text;
+    tags : [Text];
+    title : Text;
+    updatedAt : Timestamp__301639476
+  };
+type BlogPost__326843292 =
+  {
+    author : Text;
+    body : Text;
+    createdAt : Int;
+    excerpt : Text;
+    id : Text;
+    published : Bool;
+    publishedAt : ?Int;
+    slug : Text;
+    tags : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type BlogPost__584374169 =
+  {
+    author : Text;
+    body : Text;
+    createdAt : Int;
+    excerpt : Text;
+    id : Text;
+    published : Bool;
+    publishedAt : ?Int;
+    slug : Text;
+    tags : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type BlogPost__967808086 =
+  {
+    author : Text;
+    body : Text;
+    createdAt : Int;
+    excerpt : Text;
+    id : Text;
+    published : Bool;
+    publishedAt : ?Int;
+    slug : Text;
+    tags : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type CareerEntry__31463876 =
+  {
+    category : Text;
+    createdAt : Int;
+    description : Text;
+    educationPath : [Text];
+    id : Text;
+    name : Text;
+    published : Bool;
+    salaryRange : SalaryRange__73655755;
+    skills : [Text];
+    updatedAt : Int
+  };
+type CareerEntry__456598364 =
+  {
+    aiImpact : Text;
+    businessOpportunities : [Text];
+    category : Text;
+    createdAt : Timestamp__301639476;
+    description : Text;
+    educationPath : [Text];
+    eligibility : [Text];
+    entranceExams : [Text];
+    futureScope : Text;
+    growth : Text;
+    id : Text;
+    introduction : Text;
+    name : Text;
+    published : Bool;
+    relatedCareers : [Text];
+    salaryRange : SalaryRange__790701355;
+    scholarships : [Text];
+    skills : [Text];
+    slug : Text;
+    subjects : [Text];
+    topColleges : [Text];
+    updatedAt : Timestamp__301639476;
+    videos : [Text]
+  };
+type CareerEntry__582559421 =
+  {
+    category : Text;
+    createdAt : Int;
+    description : Text;
+    educationPath : [Text];
+    id : Text;
+    name : Text;
+    published : Bool;
+    salaryRange : SalaryRange__708658958;
+    skills : [Text];
+    updatedAt : Int
+  };
+type CareerEntry__588152593 =
+  {
+    aiImpact : Text;
+    businessOpportunities : [Text];
+    category : Text;
+    createdAt : Int;
+    description : Text;
+    educationPath : [Text];
+    eligibility : [Text];
+    entranceExams : [Text];
+    futureScope : Text;
+    growth : Text;
+    id : Text;
+    introduction : Text;
+    name : Text;
+    published : Bool;
+    relatedCareers : [Text];
+    salaryRange : SalaryRange__216955218;
+    scholarships : [Text];
+    skills : [Text];
+    slug : Text;
+    subjects : [Text];
+    topColleges : [Text];
+    updatedAt : Int;
+    videos : [Text]
+  };
+type CareerRecommendation__1008883920 =
+  {careerId : Text; matchPercentage : Nat; rationale : Text; title : Text};
+type CareerRecommendation__365508230 =
+  {careerId : Text; matchPercentage : Nat; rationale : Text; title : Text};
+type CareerRecommendation__403470912 =
+  {careerId : Text; matchPercentage : Nat; rationale : Text; title : Text};
+type CareerRecommendation__86567411 =
+  {careerId : Text; matchPercentage : Nat; rationale : Text; title : Text};
+type CareersState__205198187 =
+  {careers : Map__246123559<Text, CareerEntry__31463876>; var nextSeq : Nat};
+type CareersState__264116605 =
+  {careers : Map__246123559<Text, CareerEntry__582559421>; var nextSeq : Nat};
+type ContentState__568818055 =
+  {
+    blogPosts : Map__246123559<Text, BlogPost__326843292>;
+    counsellors : Map__246123559<Text, CounsellorProfile__738562506>;
+    events : Map__246123559<Text, Event__172523532>;
+    var nextBlogSeq : Nat;
+    var nextCounsellorSeq : Nat;
+    var nextEventSeq : Nat
+  };
+type ContentState__571931395 =
+  {
+    blogPosts : Map__246123559<Text, BlogPost__967808086>;
+    counsellors : Map__246123559<Text, CounsellorProfile__660506429>;
+    events : Map__246123559<Text, Event__203770025>;
+    var nextBlogSeq : Nat;
+    var nextCounsellorSeq : Nat;
+    var nextEventSeq : Nat
+  };
+type ContentState__95777518 =
+  {
+    blogPosts : Map__246123559<Text, BlogPost__584374169>;
+    counsellors : Map__246123559<Text, CounsellorProfile__949779713>;
+    events : Map__246123559<Text, Event__715123160>;
+    var nextBlogSeq : Nat;
+    var nextCounsellorSeq : Nat;
+    var nextEventSeq : Nat
+  };
+type CounsellorProfile__305483978 =
+  {
+    bio : Text;
+    createdAt : Timestamp__301639476;
+    id : Text;
+    name : Text;
+    photoUrl : ?Text;
+    published : Bool;
+    specializations : [Text];
+    title : Text;
+    updatedAt : Timestamp__301639476
+  };
+type CounsellorProfile__660506429 =
+  {
+    bio : Text;
+    createdAt : Int;
+    id : Text;
+    name : Text;
+    photoUrl : ?Text;
+    published : Bool;
+    specializations : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type CounsellorProfile__738562506 =
+  {
+    bio : Text;
+    createdAt : Int;
+    id : Text;
+    name : Text;
+    photoUrl : ?Text;
+    published : Bool;
+    specializations : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type CounsellorProfile__949779713 =
+  {
+    bio : Text;
+    createdAt : Int;
+    id : Text;
+    name : Text;
+    photoUrl : ?Text;
+    published : Bool;
+    specializations : [Text];
+    title : Text;
+    updatedAt : Int
+  };
+type CouponType__1052333864 = {#flat; #percent};
+type CouponType__473136834 = {#flat; #percent};
+type CouponType__570580856 = {#flat; #percent};
+type CouponType__662226177 = {#flat; #percent};
+type Coupon__243002030 =
+  {
+    active : Bool;
+    code : Text;
+    couponType : CouponType__662226177;
+    createdAt : Timestamp__301639476;
+    description : ?Text;
+    expiresAt : ?Timestamp__301639476;
+    maxRedemptions : ?Nat;
+    redemptions : Nat;
+    value : Nat
+  };
+type Coupon__43758760 =
+  {
+    active : Bool;
+    code : Text;
+    couponType : CouponType__1052333864;
+    createdAt : Int;
+    description : ?Text;
+    expiresAt : ?Int;
+    maxRedemptions : ?Nat;
+    redemptions : Nat;
+    value : Nat
+  };
+type Coupon__818665492 =
+  {
+    active : Bool;
+    code : Text;
+    couponType : CouponType__570580856;
+    createdAt : Int;
+    description : ?Text;
+    expiresAt : ?Int;
+    maxRedemptions : ?Nat;
+    redemptions : Nat;
+    value : Nat
+  };
+type Coupon__848542912 =
+  {
+    active : Bool;
+    code : Text;
+    couponType : CouponType__473136834;
+    createdAt : Int;
+    description : ?Text;
+    expiresAt : ?Int;
+    maxRedemptions : ?Nat;
+    redemptions : Nat;
+    value : Nat
+  };
+type CouponsState__162165213 =
+  {coupons : Map__246123559<Text, Coupon__848542912>};
+type CouponsState__385678136 =
+  {coupons : Map__246123559<Text, Coupon__43758760>};
+type CouponsState__768193400 =
+  {coupons : Map__246123559<Text, Coupon__818665492>};
+type Currency__884395579 = Text;
+type Data__552063367<K, V> = {var count : Nat__93962160; kvs : [var ?(K, V)]};
+type Event__1057944999 =
+  {
+    capacity : Nat;
+    createdAt : Timestamp__301639476;
+    description : Text;
+    endsAt : Timestamp__301639476;
+    id : Text;
+    location : Text;
+    published : Bool;
+    registeredCount : Nat;
+    startsAt : Timestamp__301639476;
+    title : Text;
+    updatedAt : Timestamp__301639476
+  };
+type Event__172523532 =
+  {
+    capacity : Nat;
+    createdAt : Int;
+    description : Text;
+    endsAt : Int;
+    id : Text;
+    location : Text;
+    published : Bool;
+    registeredCount : Nat;
+    startsAt : Int;
+    title : Text;
+    updatedAt : Int
+  };
+type Event__203770025 =
+  {
+    capacity : Nat;
+    createdAt : Int;
+    description : Text;
+    endsAt : Int;
+    id : Text;
+    location : Text;
+    published : Bool;
+    registeredCount : Nat;
+    startsAt : Int;
+    title : Text;
+    updatedAt : Int
+  };
+type Event__715123160 =
+  {
+    capacity : Nat;
+    createdAt : Int;
+    description : Text;
+    endsAt : Int;
+    id : Text;
+    location : Text;
+    published : Bool;
+    registeredCount : Nat;
+    startsAt : Int;
+    title : Text;
+    updatedAt : Int
+  };
+type Internal__455405067<K, V> =
+  {children : [var ?Node__279997185<K, V>]; data : Data__552063367<K, V>};
+type Leaf__114713147<K, V> = {data : Data__552063367<K, V>};
+type Map__190625089<K, V> = Map__719753394<K, V>;
+type Map__246123559<K, V> = Map__190625089<K, V>;
+type Map__719753394<K, V> =
+  {var root : Node__279997185<K, V>; var size : Nat__93962160};
+type Nat__920180692 = Nat;
+type Nat__93962160 = Nat__920180692;
+type NewActor__544122477 =
+  {
+    var accessControlState : AccessControlState__825338347;
+    var assessmentsState : AssessmentsState__771712877;
+    var careersState : NewCareersState__1002901609;
+    var contentState : ContentState__95777518;
+    var couponsState : CouponsState__768193400;
+    var paymentsState : PaymentsState__649931055;
+    var proofState : ProofState__40462656;
+    var reportsState : ReportsState__10834676;
+    var usersState : UsersState__680886095
+  };
+type NewActor__551726622 =
+  {
+    var accessControlState : AccessControlState__1039604880;
+    var assessmentsState : AssessmentsState__33096673;
+    var careersState : CareersState__205198187;
+    var contentState : ContentState__568818055;
+    var couponsState : CouponsState__162165213;
+    var paymentsState : PaymentsState__529012318;
+    var reportsState : ReportsState__38814972;
+    var usersState : UsersState__490507496
+  };
+type NewActor__991022820 =
+  {
+    var accessControlState : AccessControlState__644643789;
+    var assessmentsState : AssessmentsState__25112535;
+    var careersState : CareersState__264116605;
+    var contentState : ContentState__571931395;
+    var couponsState : CouponsState__385678136;
+    var paymentsState : PaymentsState__523540785;
+    var proofState : ProofState__734833205;
+    var reportsState : ReportsState__352414407;
+    var usersState : UsersState__210263987
+  };
+type NewCareersState__1002901609 =
+  {careers : Map__246123559<Text, CareerEntry__588152593>; var nextSeq : Nat};
+type Node__279997185<K, V> =
+  {#internal : Internal__455405067<K, V>; #leaf : Leaf__114713147<K, V>};
+type OldActor__331980100 =
+  {
+    var accessControlState : AccessControlState__825338347;
+    var assessmentsState : AssessmentsState__771712877;
+    var careersState : OldCareersState__790587856;
+    var contentState : ContentState__95777518;
+    var couponsState : CouponsState__768193400;
+    var paymentsState : PaymentsState__649931055;
+    var proofState : ProofState__40462656;
+    var reportsState : ReportsState__10834676;
+    var usersState : UsersState__680886095
+  };
+type OldActor__50622083 =
+  {
+    var accessControlState : AccessControlState__644643789;
+    var assessmentsState : AssessmentsState__25112535;
+    var careersState : CareersState__264116605;
+    var contentState : ContentState__571931395;
+    var couponsState : CouponsState__385678136;
+    var paymentsState : PaymentsState__523540785;
+    var reportsState : ReportsState__352414407;
+    var usersState : UsersState__210263987
+  };
+type OldActor__66675082 = {};
+type OldCareerEntry__438290707 =
+  {
+    category : Text;
+    createdAt : Int;
+    description : Text;
+    educationPath : [Text];
+    id : Text;
+    name : Text;
+    published : Bool;
+    salaryRange : SalaryRange__216955218;
+    skills : [Text];
+    updatedAt : Int
+  };
+type OldCareersState__790587856 =
+  {
+    careers : Map__246123559<Text, OldCareerEntry__438290707>;
+    var nextSeq : Nat
+  };
+type PaymentStatus__276107153 = {#completed; #failed; #pending; #refunded};
+type PaymentStatus__296016569 = {#completed; #failed; #pending; #refunded};
+type PaymentStatus__460292273 = {#completed; #failed; #pending; #refunded};
+type PaymentStatus__639843830 = {#completed; #failed; #pending; #refunded};
+type Payment__149302498 =
+  {
+    amount : Amount__460182544;
+    completedAt : ?Timestamp__301639476;
+    couponCode : ?Text;
+    createdAt : Timestamp__301639476;
+    currency : Currency__884395579;
+    discountAmount : Amount__460182544;
+    finalAmount : Amount__460182544;
+    invoiceNumber : Text;
+    status : PaymentStatus__296016569;
+    stripeSessionId : ?Text;
+    userId : UserId__158757552
+  };
+type Payment__344317307 =
+  {
+    amount : Nat;
+    completedAt : ?Int;
+    couponCode : ?Text;
+    createdAt : Int;
+    currency : Text;
+    discountAmount : Nat;
+    finalAmount : Nat;
+    invoiceNumber : Text;
+    status : PaymentStatus__276107153;
+    stripeSessionId : ?Text;
+    userId : Principal
+  };
+type Payment__565410808 =
+  {
+    amount : Nat;
+    completedAt : ?Int;
+    couponCode : ?Text;
+    createdAt : Int;
+    currency : Text;
+    discountAmount : Nat;
+    finalAmount : Nat;
+    invoiceNumber : Text;
+    status : PaymentStatus__460292273;
+    stripeSessionId : ?Text;
+    userId : Principal
+  };
+type Payment__571327183 =
+  {
+    amount : Nat;
+    completedAt : ?Int;
+    couponCode : ?Text;
+    createdAt : Int;
+    currency : Text;
+    discountAmount : Nat;
+    finalAmount : Nat;
+    invoiceNumber : Text;
+    status : PaymentStatus__639843830;
+    stripeSessionId : ?Text;
+    userId : Principal
+  };
+type PaymentsState__523540785 =
+  {
+    byUser : Map__246123559<Principal, [Text]>;
+    var nextInvoiceSeq : Nat;
+    payments : Map__246123559<Text, Payment__565410808>
+  };
+type PaymentsState__529012318 =
+  {
+    byUser : Map__246123559<Principal, [Text]>;
+    var nextInvoiceSeq : Nat;
+    payments : Map__246123559<Text, Payment__344317307>
+  };
+type PaymentsState__649931055 =
+  {
+    byUser : Map__246123559<Principal, [Text]>;
+    var nextInvoiceSeq : Nat;
+    payments : Map__246123559<Text, Payment__571327183>
+  };
+type ProofImage__1026523993 =
+  {
+    altText : Text;
+    caption : Text;
+    category : Text;
+    id : Nat;
+    photoUrl : Text;
+    sortOrder : Nat
+  };
+type ProofImage__1050367467 =
+  {
+    altText : Text;
+    caption : Text;
+    category : Text;
+    id : Nat;
+    photoUrl : Text;
+    sortOrder : Nat
+  };
+type ProofImage__419703647 =
+  {
+    altText : Text;
+    caption : Text;
+    category : Text;
+    id : Nat;
+    photoUrl : Text;
+    sortOrder : Nat
+  };
+type ProofState__40462656 =
+  {images : Map__246123559<Nat, ProofImage__419703647>};
+type ProofState__734833205 =
+  {images : Map__246123559<Nat, ProofImage__1050367467>};
+type ReportsState__10834676 =
+  {reports : Map__246123559<Text, AssessmentReport__349564380>};
+type ReportsState__352414407 =
+  {reports : Map__246123559<Text, AssessmentReport__653810497>};
+type ReportsState__38814972 =
+  {reports : Map__246123559<Text, AssessmentReport__679232127>};
+type SalaryRange__216955218 = {currency : Text; max : Nat; min : Nat};
+type SalaryRange__708658958 = {currency : Text; max : Nat; min : Nat};
+type SalaryRange__73655755 = {currency : Text; max : Nat; min : Nat};
+type SalaryRange__790701355 =
+  {currency : Currency__884395579; max : Nat; min : Nat};
+type ScoreBreakdown__171602513 =
+  {dimensionLabel : Text; maxScore : Nat; score : Nat};
+type ScoreBreakdown__338068372 =
+  {dimensionLabel : Text; maxScore : Nat; score : Nat};
+type ScoreBreakdown__696720188 =
+  {dimensionLabel : Text; maxScore : Nat; score : Nat};
+type ScoreBreakdown__907480311 =
+  {dimensionLabel : Text; maxScore : Nat; score : Nat};
+type Timestamp__301639476 = Int;
+type UserId__158757552 = Principal;
+type UserProfile__277265826 =
+  {
+    createdAt : Timestamp__301639476;
+    displayName : Text;
+    email : Text;
+    emailVerified : Bool;
+    id : UserId__158757552;
+    passportPurchased : Bool;
+    passportPurchasedAt : ?Timestamp__301639476;
+    role : UserRole__41952412;
+    suspended : Bool;
+    updatedAt : Timestamp__301639476
+  };
+type UserProfile__594159618 =
+  {
+    createdAt : Int;
+    displayName : Text;
+    email : Text;
+    emailVerified : Bool;
+    id : Principal;
+    passportPurchased : Bool;
+    passportPurchasedAt : ?Int;
+    role : UserRole__24097276;
+    suspended : Bool;
+    updatedAt : Int
+  };
+type UserProfile__688090145 =
+  {
+    createdAt : Int;
+    displayName : Text;
+    email : Text;
+    emailVerified : Bool;
+    id : Principal;
+    passportPurchased : Bool;
+    passportPurchasedAt : ?Int;
+    role : UserRole__316535459;
+    suspended : Bool;
+    updatedAt : Int
+  };
+type UserProfile__946597095 =
+  {
+    createdAt : Int;
+    displayName : Text;
+    email : Text;
+    emailVerified : Bool;
+    id : Principal;
+    passportPurchased : Bool;
+    passportPurchasedAt : ?Int;
+    role : UserRole__33289320;
+    suspended : Bool;
+    updatedAt : Int
+  };
+type UserRole__24097276 = {#admin; #guest; #user};
+type UserRole__316535459 = {#admin; #guest; #user};
+type UserRole__33289320 = {#admin; #guest; #user};
+type UserRole__41952412 = UserRole__686137147;
+type UserRole__686137147 = {#admin; #guest; #user};
+type UsersState__210263987 =
+  {
+    accessControl : AccessControlState__644643789;
+    profiles : Map__246123559<Principal, UserProfile__688090145>
+  };
+type UsersState__490507496 =
+  {
+    accessControl : AccessControlState__1039604880;
+    profiles : Map__246123559<Principal, UserProfile__594159618>
+  };
+type UsersState__680886095 =
+  {
+    accessControl : AccessControlState__825338347;
+    profiles : Map__246123559<Principal, UserProfile__946597095>
+  };
+{
+  "20260701_000000" : (old : OldActor__66675082) -> NewActor__551726622;
+  "20260702_000000" : (old : OldActor__50622083) -> NewActor__991022820;
+  "20260703_000000" : (old : OldActor__331980100) -> NewActor__544122477
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__246123559<Principal, UserRole__686137147>
+    };
+  stable assessmentsState :
+    {
+      progress :
+        Map__246123559<UserId__158757552,
+                        Map__246123559<AssessmentType__350374410,
+                                        AssessmentProgress__353828997>>
+    };
+  stable careersState :
+    {
+      careers : Map__246123559<Text, CareerEntry__456598364>;
+      var nextSeq : Nat
+    };
+  stable contentState :
+    {
+      blogPosts : Map__246123559<Text, BlogPost__240102757>;
+      counsellors : Map__246123559<Text, CounsellorProfile__305483978>;
+      events : Map__246123559<Text, Event__1057944999>;
+      var nextBlogSeq : Nat;
+      var nextCounsellorSeq : Nat;
+      var nextEventSeq : Nat
+    };
+  stable couponsState : {coupons : Map__246123559<Text, Coupon__243002030>};
+  stable paymentsState :
+    {
+      byUser : Map__246123559<UserId__158757552, [Text]>;
+      var nextInvoiceSeq : Nat;
+      payments : Map__246123559<Text, Payment__149302498>
+    };
+  stable proofState : {images : Map__246123559<Nat, ProofImage__1026523993>};
+  stable reportsState :
+    {reports : Map__246123559<Text, AssessmentReport__513004356>};
+  stable usersState :
+    {
+      accessControl : AccessControlState__836714403;
+      profiles : Map__246123559<UserId__158757552, UserProfile__277265826>
+    }
+};

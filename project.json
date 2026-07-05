@@ -1,0 +1,23 @@
+{
+  "overview": "EduCareersPath is India's AI-powered career, skill, and human development ecosystem — a premium marketing platform with psychometric assessments, a career library, study-abroad guidance, coding and robotics curricula, and solutions for schools, colleges, corporates, and government.\"",
+  "features": [
+    "Full ecosystem home page with 19 sections covering all offerings",
+    "Career Library with searchable listings and detailed career pages seeded with sample careers",
+    "3 timed psychometric assessments with save and resume",
+    "Stripe checkout for the Career Passport with coupon support",
+    "Student Dashboard with Generate Report button",
+    "Admin panel for users, reports, coupons, and payments",
+    "Proof of Implementation gallery with 17 real workshop photos",
+    "Portal redirects for student dashboard, career library, and sign-in",
+    "Unified Resources hub, dashboard overview pages, and expanded navigation"
+  ],
+  "category": "showcase",
+  "tags": [
+    "education",
+    "career-guidance",
+    "marketing-site",
+    "ecosystem",
+    "assessments"
+  ],
+  "last_updated": "2026-07-02T16:40:14.123Z"
+}

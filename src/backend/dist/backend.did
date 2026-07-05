@@ -1,0 +1,410 @@
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfileInput = 
+ record {
+   displayName: text;
+   email: text;
+ };
+type UserProfile = 
+ record {
+   createdAt: Timestamp;
+   displayName: text;
+   email: text;
+   emailVerified: bool;
+   id: UserId;
+   passportPurchased: bool;
+   passportPurchasedAt: opt Timestamp;
+   role: UserRole;
+   suspended: bool;
+   updatedAt: Timestamp;
+ };
+type UserId = principal;
+type Timestamp = int;
+type ScoreBreakdown = 
+ record {
+   dimensionLabel: text;
+   maxScore: nat;
+   score: nat;
+ };
+type SaveProgressInput = 
+ record {
+   answers: vec AnsweredQuestion;
+   assessmentType: AssessmentType;
+ };
+type SalaryRange = 
+ record {
+   currency: Currency;
+   max: nat;
+   min: nat;
+ };
+type Result = 
+ variant {
+   err: Error;
+   ok;
+ };
+type RecordPaymentInput = 
+ record {
+   amount: Amount;
+   couponCode: opt text;
+   currency: Currency;
+   stripeSessionId: opt text;
+ };
+type ProofImage = 
+ record {
+   altText: text;
+   caption: text;
+   category: text;
+   id: nat;
+   photoUrl: text;
+   sortOrder: nat;
+ };
+type PaymentStatus = 
+ variant {
+   completed;
+   failed;
+   pending;
+   refunded;
+ };
+type Payment = 
+ record {
+   amount: Amount;
+   completedAt: opt Timestamp;
+   couponCode: opt text;
+   createdAt: Timestamp;
+   currency: Currency;
+   discountAmount: Amount;
+   finalAmount: Amount;
+   invoiceNumber: text;
+   status: PaymentStatus;
+   stripeSessionId: opt text;
+   userId: UserId;
+ };
+type Invoice = 
+ record {
+   amount: Amount;
+   coupon: opt Coupon;
+   currency: Currency;
+   discountAmount: Amount;
+   finalAmount: Amount;
+   invoiceNumber: text;
+   issuedAt: Timestamp;
+   status: PaymentStatus;
+   userId: UserId;
+ };
+type EventInput = 
+ record {
+   capacity: nat;
+   description: text;
+   endsAt: Timestamp;
+   location: text;
+   published: bool;
+   startsAt: Timestamp;
+   title: text;
+ };
+type Event = 
+ record {
+   capacity: nat;
+   createdAt: Timestamp;
+   description: text;
+   endsAt: Timestamp;
+   id: text;
+   location: text;
+   published: bool;
+   registeredCount: nat;
+   startsAt: Timestamp;
+   title: text;
+   updatedAt: Timestamp;
+ };
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+type Currency = text;
+type CouponValidation = 
+ record {
+   discountAmount: Amount;
+   reason: opt text;
+   valid: bool;
+ };
+type CouponType = 
+ variant {
+   flat;
+   percent;
+ };
+type CouponInput = 
+ record {
+   active: bool;
+   code: text;
+   couponType: CouponType;
+   description: opt text;
+   expiresAt: opt Timestamp;
+   maxRedemptions: opt nat;
+   value: nat;
+ };
+type Coupon = 
+ record {
+   active: bool;
+   code: text;
+   couponType: CouponType;
+   createdAt: Timestamp;
+   description: opt text;
+   expiresAt: opt Timestamp;
+   maxRedemptions: opt nat;
+   redemptions: nat;
+   value: nat;
+ };
+type CounsellorProfileInput = 
+ record {
+   bio: text;
+   name: text;
+   photoUrl: opt text;
+   published: bool;
+   specializations: vec text;
+   title: text;
+ };
+type CounsellorProfile = 
+ record {
+   bio: text;
+   createdAt: Timestamp;
+   id: text;
+   name: text;
+   photoUrl: opt text;
+   published: bool;
+   specializations: vec text;
+   title: text;
+   updatedAt: Timestamp;
+ };
+type CareerSearchQuery = 
+ record {
+   category: opt text;
+   limit: nat;
+   offset: nat;
+   publishedOnly: bool;
+   searchTerm: opt text;
+ };
+type CareerRecommendation = 
+ record {
+   careerId: text;
+   matchPercentage: nat;
+   rationale: text;
+   title: text;
+ };
+type CareerEntryInput = 
+ record {
+   aiImpact: text;
+   businessOpportunities: vec text;
+   category: text;
+   description: text;
+   educationPath: vec text;
+   eligibility: vec text;
+   entranceExams: vec text;
+   futureScope: text;
+   growth: text;
+   introduction: text;
+   name: text;
+   published: bool;
+   relatedCareers: vec text;
+   salaryRange: SalaryRange;
+   scholarships: vec text;
+   skills: vec text;
+   slug: text;
+   subjects: vec text;
+   topColleges: vec text;
+   videos: vec text;
+ };
+type CareerEntry = 
+ record {
+   aiImpact: text;
+   businessOpportunities: vec text;
+   category: text;
+   createdAt: Timestamp;
+   description: text;
+   educationPath: vec text;
+   eligibility: vec text;
+   entranceExams: vec text;
+   futureScope: text;
+   growth: text;
+   id: text;
+   introduction: text;
+   name: text;
+   published: bool;
+   relatedCareers: vec text;
+   salaryRange: SalaryRange;
+   scholarships: vec text;
+   skills: vec text;
+   slug: text;
+   subjects: vec text;
+   topColleges: vec text;
+   updatedAt: Timestamp;
+   videos: vec text;
+ };
+type BlogPostInput = 
+ record {
+   author: text;
+   body: text;
+   excerpt: text;
+   published: bool;
+   slug: text;
+   tags: vec text;
+   title: text;
+ };
+type BlogPost = 
+ record {
+   author: text;
+   body: text;
+   createdAt: Timestamp;
+   excerpt: text;
+   id: text;
+   published: bool;
+   publishedAt: opt Timestamp;
+   slug: text;
+   tags: vec text;
+   title: text;
+   updatedAt: Timestamp;
+ };
+type AssessmentType = 
+ variant {
+   aptitude;
+   interest;
+   personality;
+ };
+type AssessmentReport = 
+ record {
+   assessmentType: AssessmentType;
+   breakdown: vec ScoreBreakdown;
+   generatedAt: Timestamp;
+   id: UserId;
+   maxScore: nat;
+   recommendations: vec CareerRecommendation;
+   summary: text;
+   totalScore: nat;
+   userId: UserId;
+ };
+type AssessmentProgress = 
+ record {
+   answers: vec AnsweredQuestion;
+   assessmentType: AssessmentType;
+   lastSavedAt: Timestamp;
+   startedAt: Timestamp;
+   submitted: bool;
+   submittedAt: opt Timestamp;
+   userId: UserId;
+ };
+type AssessmentDefinition = 
+ record {
+   assessmentType: AssessmentType;
+   description: text;
+   durationMinutes: nat;
+   title: text;
+   totalQuestions: nat;
+ };
+type AnsweredQuestion = 
+ record {
+   questionId: nat;
+   selectedOption: nat;
+ };
+type Amount = nat;
+type AdminUserView = record {profile: UserProfile;};
+type AdminUserQuery = 
+ record {
+   limit: nat;
+   offset: nat;
+   passportFilter: opt bool;
+   roleFilter: opt UserRole;
+   searchTerm: opt text;
+   suspendedFilter: opt bool;
+ };
+service : {
+  __accessControlState: () -> (reserved) query;
+  __assessmentsState: () -> (reserved) query;
+  __careersState: () -> (reserved) query;
+  __contentState: () -> (reserved) query;
+  __couponsState: () -> (reserved) query;
+  __paymentsState: () -> (reserved) query;
+  __proofState: () -> (reserved) query;
+  __reportsState: () -> (reserved) query;
+  __usersState: () -> (reserved) query;
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result);
+  _internet_identity_sign_in_start: () -> (blob);
+  adminListUsers: (searchQuery: AdminUserQuery) -> (vec AdminUserView) query;
+  adminSearchUsers: (searchQuery: AdminUserQuery) ->
+   (vec AdminUserView) query;
+  adminSuspendUser: (userId: principal) -> (UserProfile);
+  adminUnsuspendUser: (userId: principal) -> (UserProfile);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  createBlogPost: (input: BlogPostInput) -> (BlogPost);
+  createCareer: (input: CareerEntryInput) -> (CareerEntry);
+  createCounsellor: (input: CounsellorProfileInput) -> (CounsellorProfile);
+  createCoupon: (input: CouponInput) -> (Coupon);
+  createEvent: (input: EventInput) -> (Event);
+  deleteBlogPost: (id: text) -> ();
+  deleteCareer: (id: text) -> ();
+  deleteCounsellor: (id: text) -> ();
+  deleteCoupon: (code: text) -> ();
+  deleteEvent: (id: text) -> ();
+  generateMyReport: (assessmentType: AssessmentType) -> (AssessmentReport);
+  getBlogPost: (id: text) -> (opt BlogPost) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getCareer: (id: text) -> (opt CareerEntry) query;
+  getCareerBySlug: (slug: text) -> (opt CareerEntry) query;
+  getCounsellor: (id: text) -> (opt CounsellorProfile) query;
+  getEvent: (id: text) -> (opt Event) query;
+  getMyInvoice: (invoiceNumber: text) -> (opt Invoice) query;
+  getMyProfile: () -> (opt UserProfile) query;
+  getMyProgress: (assessmentType: AssessmentType) -> (opt AssessmentProgress);
+  getMyReport: (assessmentType: AssessmentType) -> (opt AssessmentReport);
+  getProfile: (userId: principal) -> (opt UserProfile) query;
+  getReportForUser: (userId: principal, assessmentType: AssessmentType) ->
+   (opt AssessmentReport) query;
+  isCallerAdmin: () -> (bool) query;
+  listAllInvoices: () -> (vec Invoice) query;
+  listAssessmentDefinitions: () -> (vec AssessmentDefinition) query;
+  listBlogPosts: (publishedOnly: bool) -> (vec BlogPost) query;
+  listCareers: (offset: nat, limit: nat) -> (vec CareerEntry) query;
+  listCounsellors: (publishedOnly: bool) -> (vec CounsellorProfile) query;
+  listCoupons: () -> (vec Coupon) query;
+  listEvents: (publishedOnly: bool) -> (vec Event) query;
+  listMyInvoices: () -> (vec Invoice) query;
+  listMyReports: () -> (vec AssessmentReport);
+  listProofImages: () -> (vec ProofImage) query;
+  listProofImagesByCategory: (category: text) -> (vec ProofImage) query;
+  markEmailVerified: (userId: principal) -> (UserProfile);
+  markPassportPurchased: (userId: principal) -> (UserProfile);
+  markPaymentCompleted: (invoiceNumber: text) -> (Payment);
+  recordMyPayment: (input: RecordPaymentInput) -> (Payment);
+  saveMyProgress: (input: SaveProgressInput) -> (AssessmentProgress);
+  searchCareers: (searchQuery: CareerSearchQuery) -> (vec CareerEntry) query;
+  submitMyAssessment: (assessmentType: AssessmentType) ->
+   (AssessmentProgress);
+  updateBlogPost: (id: text, input: BlogPostInput) -> (BlogPost);
+  updateCareer: (id: text, input: CareerEntryInput) -> (CareerEntry);
+  updateCounsellor: (id: text, input: CounsellorProfileInput) ->
+   (CounsellorProfile);
+  updateCoupon: (code: text, input: CouponInput) -> (Coupon);
+  updateEvent: (id: text, input: EventInput) -> (Event);
+  upsertMyProfile: (input: UserProfileInput) -> (UserProfile);
+  validateCoupon: (code: text, amount: Amount) -> (CouponValidation) query;
+}
